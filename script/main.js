@@ -46,6 +46,29 @@ function toggleListItem(contentNumber) {
   }
 }
 
+function dmtoggleListItem(contentNumber) {
+  // Remove active class from all buttons and content elements
+  var listItems = document.getElementsByClassName("dmlistItem");
+  for (var i = 0; i < listItems.length; i++) {
+    listItems[i].classList.remove("dmactiveBtn");
+  }
+
+  var contentElements = document.getElementsByClassName("dmcontent");
+  for (var i = 0; i < contentElements.length; i++) {
+    contentElements[i].classList.remove("dmactiveContent");
+  }
+
+  // Add active class to the selected button and content
+  var selectedButton = document.querySelector(
+    ".dmlistItem:nth-child(" + contentNumber + ")"
+  );
+  var selectedContent = document.getElementById("dmcontent" + contentNumber);
+  if (selectedButton && selectedContent) {
+    selectedButton.classList.add("dmactiveBtn");
+    selectedContent.classList.add("dmactiveContent");
+  }
+}
+
 const sscExam = document.getElementById("sscExam");
 const hscExam = document.getElementById("hscExam");
 const no = document.getElementById("no");
