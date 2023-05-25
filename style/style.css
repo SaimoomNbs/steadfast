@@ -479,6 +479,7 @@ span {
   color: #fff;
   border: none;
 }
+
 .applay__job_academic_info li {
   background-color: #ddd;
   padding: 5px 10px;
@@ -505,6 +506,30 @@ span {
 .applay__job_academic_info .masters_info {
   width: 50px;
 }
+
+
+
+.applay__job_file_upload li {
+  background-color: #ddd;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.applay__job_file_upload li p {
+  font-size: 14px;
+  margin: 0;
+}
+.applay__job_file_upload .dmcontent {
+  display: none;
+}
+.applay__job_file_upload .dmactiveBtn {
+  display: block;
+  background-color: #1dc68c;
+  color: #fff;
+}
+.applay__job_file_upload .dmactiveContent {
+  display: block;
+}
+
 
 @media (max-width: 972px) {
   h2 {
