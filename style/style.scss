@@ -1,0 +1,597 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #f5f5f5;
+}
+
+// ------------------------------------ Scss Varibale
+$__black_one: #000000f1;
+$__black_two: #232323db;
+$__green_one: #1dc68c;
+$__white_one: #fff;
+$__white_two: #ddd;
+$__white_three: #f5f5f5;
+
+@mixin flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin big_btn {
+  max-width: 220px;
+  width: 100%;
+  height: 50px;
+  background-color: $__white_one;
+  border-radius: 7px;
+  @include flex_center();
+  font-weight: 600;
+  color: $__green_one;
+  padding: 0 10px;
+}
+
+@mixin small_btn {
+  @include big_btn();
+  height: 35px;
+  width: 100px;
+  color: $__white_one;
+  background-color: $__green_one;
+}
+
+@mixin input_filed {
+  padding: 8px 10px;
+  width: 100%;
+  border: 1px solid $__green_one;
+  height: 45px;
+  outline: none;
+  &:focus {
+    border: 2px solid $__green_one;
+  }
+}
+// ------------------------------------- Common Style
+.container {
+  max-width: 1150px;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: $__black_one;
+  font-size: 15px;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 40px;
+}
+h3 {
+  font-weight: 600;
+  font-size: 30px;
+}
+h4 {
+  font-weight: 600;
+}
+p {
+  font-size: 17px;
+}
+span {
+  font-size: 14px;
+}
+.mt_120 {
+  margin-top: 120px;
+}
+.mb_120 {
+  margin-bottom: 120px;
+}
+// ----------------------------------------Header
+.header {
+  a {
+    font-weight: 500;
+    color: $__black_two;
+    transition: all 0.5s;
+    &:hover {
+      color: $__green_one;
+    }
+  }
+  .login {
+    &:hover {
+      color: $__white_one;
+    }
+  }
+  .register {
+    @include small_btn();
+    background-color: transparent;
+    color: $__black_two;
+    border: 1px solid $__black_two;
+  }
+  .login {
+    @include small_btn();
+  }
+
+  .mobile_menu {
+    transition: all 0.5s;
+    // left: -100%;
+  }
+}
+
+// ----------------------------------------Banner
+.main__banner {
+  background-image: url("../assets/images/bg-wave-img.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 80px;
+  padding-bottom: 210px;
+  &_info {
+    a {
+      @include big_btn();
+      margin-top: 50px;
+    }
+  }
+
+  &_inputBox {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 800px;
+    width: 100%;
+    input {
+      @include input_filed;
+    }
+    button {
+      @include big_btn();
+      background-color: $__green_one;
+      border: none;
+      color: $__white_one;
+      height: 45px;
+      border-radius: 0;
+      img {
+        width: 20px;
+      }
+    }
+  }
+}
+
+.contact__banner {
+  background-image: url(../assets/images/bg-down-curve.svg);
+  // background-size: cover;
+  background-repeat: no-repeat;
+  // min-height: 500px;
+}
+
+// ----------------------------------------- Feature
+.accordion-button:not(.collapsed) {
+  background-color: transparent;
+}
+
+.accordion-single {
+  border-bottom: 1px solid #efefef;
+  margin-top: 10px;
+}
+
+.accordion-single-title {
+  border-top: 1px solid #efefef;
+  padding: 20px;
+  cursor: pointer;
+  position: relative;
+  font-size: 20px;
+  margin: 0;
+}
+
+.accordion-single-title::after {
+  content: "";
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transition: all 0.2s ease-in-out;
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-top: solid 2px #999;
+  border-right: solid 2px #999;
+  transform: translateY(-50%) rotate(135deg);
+}
+
+.accordion-single-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.accordion-single-content p {
+  padding: 20px;
+}
+
+.accordion-single-item.is-open .accordion-single-content {
+  max-height: 150px;
+}
+
+.accordion-single-item.is-open .accordion-single-title::after {
+  transform: translateY(-50%) rotate(315deg);
+}
+// ------------------------------------------- Our Services
+.our_services {
+  .service_item {
+    p {
+      font-weight: 500;
+    }
+    .service_img {
+      width: 150px;
+      height: 150px;
+      border-radius: 35px;
+      transform: rotate(45deg);
+      @include flex_center();
+      img {
+        transform: rotate(-45deg);
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
+}
+
+// ---------------------------------------------- service_area
+.service_area {
+  a {
+    font-weight: 600;
+    color: $__green_one;
+  }
+}
+
+// --------------------------------------------- Charge  Calculator
+.calculator {
+  label {
+    font-weight: 500;
+    display: block;
+  }
+  select,
+  input {
+    padding: 7px 10px;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 7px;
+    background-color: $__white_three;
+    outline: none;
+    &:focus {
+      border: 1px solid $__green_one;
+    }
+  }
+  input {
+    border: 1px solid $__black_two;
+  }
+
+  &__info {
+    .value {
+      border: 1px solid $__black_two;
+      padding: 5px 15px;
+      border-radius: 15px;
+    }
+    ul {
+      margin-top: 15px;
+      line-height: 40px;
+    }
+  }
+  .applay__btn {
+    @include big_btn();
+    background-color: $__green_one;
+    color: $__white_one;
+  }
+  .seeMore__btn {
+    font-weight: 600;
+    font-size: 17px;
+    color: $__green_one;
+  }
+}
+
+// --------------------------------------------- footer
+.footer {
+  background-image: url(../assets/images/footer.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 150px 0;
+
+  h5 {
+    color: $__white_one;
+    font-weight: 600;
+  }
+  a {
+    color: $__white_one;
+    font-weight: 500;
+    line-height: 40px;
+  }
+
+  .newsletter {
+    position: relative;
+    input {
+      width: 100%;
+      height: 50px;
+      background-color: transparent;
+      padding: 10px;
+      border: 2px solid $__white_one;
+      color: $__white_one;
+      border-radius: 5px;
+      &::placeholder {
+        color: $__white_one;
+      }
+      &:focus {
+        outline: 1px solid $__white_one;
+      }
+    }
+    button {
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 40px;
+      border: none;
+      padding: 0 15px;
+      border-radius: 5px;
+    }
+  }
+
+  &__bottom {
+    img {
+      width: 40px;
+      margin: 0 7px;
+    }
+  }
+}
+
+// ---------------------------------------------- contact__form
+.contact__form {
+  input,
+  textarea {
+    @include input_filed();
+    border: none;
+    background-color: $__white_one;
+    margin: 10px 0;
+  }
+  textarea {
+    min-height: 150px;
+  }
+  button {
+    background-color: $__green_one;
+    border: none;
+    width: 100%;
+    height: 50px;
+    color: $__white_one;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .contact__info {
+    h4 {
+      background-color: $__green_one;
+      display: inline-block;
+      padding: 2px 15px;
+      border-radius: 50px;
+      color: $__white_one;
+    }
+    img {
+      width: 20px;
+    }
+  }
+}
+
+//------------------------------------------- Register Right Side
+.register {
+  &__wapper {
+    max-width: 1000px;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+    background-color: $__white_one;
+    border-radius: 5px;
+  }
+  &__right_side {
+    background-image: url("../assets/images/rl-bg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-top: 100px;
+    padding-bottom: 180px;
+  }
+  &__left_side {
+    padding: 70px 50px;
+    input,
+    textarea {
+      @include input_filed();
+      border: none;
+      box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+      margin: 10px 0;
+      border-radius: 5px;
+    }
+    button {
+      height: 50px;
+      width: 100%;
+      background-color: $__green_one;
+      border: none;
+      font-weight: 600;
+      color: $__white_one;
+      margin-top: 15px;
+      border-radius: 5px;
+    }
+    a {
+      color: #f6273bf1;
+      font-weight: 500;
+      text-decoration: underline;
+    }
+  }
+}
+
+// -------------------------------------- Login
+.login {
+  &__wapper {
+    @extend .register__wapper;
+  }
+
+  &__right_side {
+    @extend .register__right_side;
+  }
+
+  &__left_side {
+    @extend .register__left_side;
+    padding-top: 100px;
+    padding-bottom: 180px;
+    input[type="checkbox"] {
+      width: auto;
+      height: auto;
+    }
+  }
+}
+
+// -------------------------------------- Applay To Job
+.applay__job {
+  &_wapper {
+    max-width: 650px;
+    background-color: $__white_one;
+    padding: 40px;
+    border-radius: 5px;
+    h5 {
+      color: $__green_one;
+    }
+    b {
+      font-weight: 600;
+    }
+    input,
+    select {
+      @include input_filed();
+      height: auto;
+      font-size: 14px
+    }
+    button {
+      max-width: 150px;
+      width: 100%;
+      height: 40px;
+      background-color: $__green_one;
+      color: $__white_one;
+      border: none;
+    }
+  }
+
+  &_academic_info {
+    li {
+      background-color: $__white_two;
+      padding: 5px 10px;
+      cursor: pointer;
+      p {
+        font-size: 14px;
+        margin: 0;
+      }
+    }
+
+    .content {
+      display: none;
+    }
+  
+    .activeBtn {
+      display: block;
+      background-color: #1dc68c;
+      color: $__white_one;
+    }
+    .activeContent{
+      display: block;
+    }
+    .sscDakhil, .hscAlim, .oLevel, .aLevel, .masters{
+      display: none;
+    }
+    .masters_info{
+      width: 50px;
+    }
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 972px) {
+  h2 {
+    font-size: 26px;
+    font-weight: 700;
+  }
+  .mobile_menu {
+    position: absolute;
+    left: -100%;
+    top: 100%;
+    background-color: $__white_one;
+    min-height: 100vh;
+    padding: 10px;
+    min-width: 50%;
+    line-height: 40px;
+  }
+  .active {
+    left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .main__banner {
+    &_inputBox {
+      width: 90%;
+    }
+    &_info {
+      a {
+        font-weight: 400;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+    }
+
+    &_img {
+      width: 70%;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .main__banner {
+    &_inputBox {
+      button {
+        @include big_btn();
+        background-color: $__green_one;
+        border: none;
+        color: $__white_one;
+        height: 45px;
+        border-radius: 0;
+        width: 150px;
+        img {
+          width: 20px;
+        }
+      }
+    }
+  }
+
+  //  ---------------- Our Services
+  .our_services {
+    .service_item {
+      .service_img {
+        width: 100px;
+        height: 100px;
+        img {
+          transform: rotate(-45deg);
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+}
